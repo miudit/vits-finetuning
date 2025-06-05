@@ -220,7 +220,7 @@ def train_and_evaluate(rank, epoch, hps, nets, optims, schedulers, scaler, loade
             "slice/mel_org": utils.plot_spectrogram_to_numpy(y_mel[0].data.cpu().numpy()),
             "slice/mel_gen": utils.plot_spectrogram_to_numpy(y_hat_mel[0].data.cpu().numpy()), 
             "all/mel": utils.plot_spectrogram_to_numpy(mel[0].data.cpu().numpy()),
-            # "all/attn": utils.plot_alignment_to_numpy(attn[0,0].data.cpu().numpy())
+            "all/attn": utils.plot_alignment_to_numpy(attn[0,0].data.cpu().numpy())
         }
         utils.summarize(
           writer=writer,
