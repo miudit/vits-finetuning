@@ -129,6 +129,7 @@ def plot_alignment_to_numpy(alignment, info=None):
 
   fig.canvas.draw()
   data = np.fromstring(fig.canvas.tostring_argb(), dtype=np.uint8, sep='')
+  data = data[..., 1:]  # Remove alpha channel (ARGB -> RGB)
   data = data.reshape(fig.canvas.get_width_height()[::-1] + (3,))
   plt.close()
   return data
