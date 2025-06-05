@@ -282,20 +282,20 @@ def evaluate(hps, generator, eval_loader, writer_eval):
         hps.data.mel_fmin,
         hps.data.mel_fmax
       )
-    image_dict = {
-      "gen/mel": utils.plot_spectrogram_to_numpy(y_hat_mel[0].cpu().numpy())
-    }
+    # image_dict = {
+    #   "gen/mel": utils.plot_spectrogram_to_numpy(y_hat_mel[0].cpu().numpy())
+    # }
     audio_dict = {
       "gen/audio": y_hat[0,:,:y_hat_lengths[0]]
     }
     if global_step == 0:
-      image_dict.update({"gt/mel": utils.plot_spectrogram_to_numpy(mel[0].cpu().numpy())})
+      # image_dict.update({"gt/mel": utils.plot_spectrogram_to_numpy(mel[0].cpu().numpy())})
       audio_dict.update({"gt/audio": y[0,:,:y_lengths[0]]})
 
     utils.summarize(
       writer=writer_eval,
       global_step=global_step, 
-      images=image_dict,
+      # images=image_dict,
       audios=audio_dict,
       audio_sampling_rate=hps.data.sampling_rate
     )
